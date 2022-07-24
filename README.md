@@ -3,7 +3,7 @@ ysyx-npc simulation environment, just have difftest, reference is nemu
 readme is here!
 
 verilator version 4.210
-ysyx-npc-difftest version 1
+ysyx-npc-difftest version 1.2
 
 this is a object for ysyx. test five stage assembly line, just have difftest, referance is nemu.  
 if u have other idea, please debug by yourself.
@@ -31,6 +31,7 @@ top.v interface
 	
 		//difftest need				 from write back 
 		output wire [63: 0] debug_wb_pc, // u can change this wire
+		output wire [63: 0] debug_wb_npc, 
 		output bubble     // if it is a bubble,"c" will skip difftest once  
 	);
 		// from exu and send to exu
@@ -87,15 +88,11 @@ remeber regcpy() need copy pc and special reg
 
 4.u have to get riscv64-nemu-interpreter-so
 
-xxx@xx:~$ cd $NEMU_HOME
-
-xxx@xx:~/$(NEMU_HOME)$ make menucofig
-
-option: Build target -> Share object(used as REF for differential testing)
-
-select -> save -> exit
-
-xxx@xx:~/$(NEMU_HOME)$ make run
+	xxx@xx:~$ cd $NEMU_HOME
+	xxx@xx:~/$(NEMU_HOME)$ make menucofig
+	option: Build target -> Share object(used as REF for differential testing)
+	select -> save -> exit
+	xxx@xx:~/$(NEMU_HOME)$ make run
 
 u will get riscv64-nemu-interpreter-so at $(NEMU_HOME)/build
 otherwise, u need to code na.cpp line:225 
@@ -114,5 +111,5 @@ otherwise, u need to code na.cpp line:225
 
 
 readme over
-that's all for now(2022/7/23), i will add later when i think of it.
+that's all for now(2022/7/24), i will add later when i think of it.
 
