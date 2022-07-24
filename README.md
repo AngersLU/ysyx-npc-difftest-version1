@@ -93,7 +93,7 @@ remeber, regcpy() need to copy pc and special regs.
 	xxx@xx:~/$(NEMU_HOME)$ make run
 
 u will get riscv64-nemu-interpreter-so at $(NEMU_HOME)/build
-otherwise, u need to code na.cpp line:225 
+otherwise, u need to code na.cpp line:226 
 
 ####################################################################
 
