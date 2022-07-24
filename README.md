@@ -68,7 +68,9 @@ remeber regcpy() need copy pc and special reg
 
 3.add some code at a-m/scripts/riscv64-npc.mk
 
-run: image 
+
+ run: image 	
+ 
 	make -C $(NPC_HOME) run IMAGE = $(IMAGE).bin
 
 //some times your nemu is bad , so this is a big question.
