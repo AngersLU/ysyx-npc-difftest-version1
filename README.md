@@ -5,12 +5,11 @@ readme is here!
 verilator version 4.210
 ysyx-npc-difftest version 1.2
 
-this is a object for ysyx. test five stage assembly line, just have difftest, referance is nemu.  
+this is a object for ysyx. 
+test five stage assembly line, just have difftest, referance is nemu.  
 if u have other idea, please debug by yourself.
 
-
-
-
+####################################################################
 1.your top moudle is named " top "
 
 top.v interface
@@ -63,17 +62,17 @@ top.v interface
 
 	endmoudle
 
+####################################################################
 
+2.maybe your npc don't have ebreak(),
+u have to code your am at a-m/am/src/riscv/npc/trm.c.  
+code what ? look nemu, copy.
 
-
-
-2.maybe your npc don't have ebreak(), u have to code your am at a-m/am/src/riscv/npc/trm.c.  code what ? look nemu, copy.
 ref_difftest_exec()\ref_difftest_regcpy()\ref_difftest_memcpuy()...
 at the same time, u should code them in neme/src/cpt/difftest/ref.c
-remeber regcpy() need copy pc and special reg
+remeber, regcpy() need to copy pc and special regs.
 
-
-
+####################################################################
 
 3.add some code at a-m/scripts/riscv64-npc.mk
 
@@ -81,10 +80,9 @@ remeber regcpy() need copy pc and special reg
 		make -C $(NPC_HOME) run IMAGE = $(IMAGE).bin
 
 //some times your nemu is bad , so this is a big question.
-//phase3'difftest is better, but i don't have. maybe it is version 2 
+//phase3'difftest is better, but i don't have. maybe it will be ysyx-npc-difftest-version 2.
 
-
-
+####################################################################
 
 4.u have to get riscv64-nemu-interpreter-so
 
@@ -97,8 +95,7 @@ remeber regcpy() need copy pc and special reg
 u will get riscv64-nemu-interpreter-so at $(NEMU_HOME)/build
 otherwise, u need to code na.cpp line:225 
 
-
-
+####################################################################
 
 5.use ebreak() in wbu
 
