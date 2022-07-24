@@ -74,10 +74,15 @@ run; image
 //phase3'difftest is better, but i don't have. maybe it is version 2 
 
 4.u have to get riscv64-nemu-interpreter-so
+
 xxx@xx:~$ cd $NEMU_HOME
+
 xxx@xx:~/$(NEMU_HOME)$ make menucofig
+
 option: Build target -> Share object(used as REF for differential testing)
+
 select -> save -> exit
+
 xxx@xx:~/$(NEMU_HOME)$ make run
 
 u will get riscv64-nemu-interpreter-so at $(NEMU_HOME)/build
