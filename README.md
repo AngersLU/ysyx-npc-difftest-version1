@@ -136,6 +136,11 @@ otherwise, u need to code na.cpp line:226
 
     assign dsram_sel = ex_dsram_sel;
 
+#####################################################################
+
+7.u need add printf in pmemm_read() to get mtrace
+
+remmeber, mem_read usu in exu(mine npc), your cpuu.pc or pc is wbu_pc, so u need add a new wire from exu to top.
 
 
 readme over
