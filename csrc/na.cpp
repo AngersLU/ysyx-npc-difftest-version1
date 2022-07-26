@@ -61,7 +61,7 @@ extern "C" void mem_read(long long raddr, long long *rdata) {
     if( top->dsram_e && !top->dsram_we ){
     // 总是读取地址为`raddr & ~0x7ull`的8字节返回给`rdata`
      // pmem_read(      *(uint64_t *)(raddr & ~0x7ull) ;//;
-      *rdata = pmem_read((raddr & ~0x7ull), 8) >> ((raddr & 0x7ull) * 8);
+      *rdata = pmem_read((raddr & ~0x7ull), 8);
     }
   }
 }
