@@ -3,7 +3,7 @@ ysyx-npc simulation environment, just have difftest, reference is nemu
 readme is here!
 
 verilator version 4.210
-ysyx-npc-difftest version 1.2
+ysyx-npc-difftest version 1.3
 
 this is a object for ysyx. 
 test five stage assembly line, just have difftest, referance is nemu.  
@@ -106,7 +106,30 @@ otherwise, u need to code na.cpp line:226
 		end
 	end
 
+#####################################################################
+
+6.your NPC must handle the result of mem_read->u have to use mask for data_sram result
+
+    //exu load and store example , u get mask in mem stage
+    wire [ 7: 0] ex_dsram_sel;
+    assign dsram_e  =   dram_e;
+    assign dsram_we =   dram_we;
+    assign dsram_addr   =   ex_result;
+
+    assign dsram_wdata  =   inst_sb ? {  8{rf_rdata2[ 7: 0]} } :
+                            inst_sh ? {  4{rf_rdata2[15: 0]} } :
+                            inst_sw ? {  2{rf_rdata2[31: 0]} } :
+                            inst_sd ? rf_rdata2 : 64'b0;
+
+    assign ex_dsram_sel    =    lsu_64  ? 8'b1111_1111 :
+                                lsu_32  ? { {4{byte_sel[4]}}, {4{byte_sel[0]}}} :
+                                lsu_16  ? { {2{byte_sel[6]}}, {2{byte_sel[4]}}, {2{byte_sel[2]}}, {2{byte_sel[0]}} } : 
+                                lsu_8   ? byte_sel  : 8'b0;
+
+    assign dsram_sel = ex_dsram_sel;
+
+
 
 readme over
-that's all for now(2022/7/24), i will add later when i think of it.
+that's all for now(2022/7/26), i will add later when i think of it.
 
