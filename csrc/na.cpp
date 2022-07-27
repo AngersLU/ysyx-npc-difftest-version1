@@ -80,6 +80,7 @@ extern "C" void mem_write(long long waddr, long long wdata, char wmask) {
           mask |= f;
         }
       }
+      wdata = wdata & mask;
       mask = ~mask;
       long long wdata_z = wdata | (pmem_read((waddr & ~0x7ull), 8) & mask);
       pmem_write((waddr & ~0x7ull), 8, wdata_z);
