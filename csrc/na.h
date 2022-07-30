@@ -5,6 +5,7 @@
 #include <assert.h>
 #include <getopt.h>
 
+
 void exit_now();
 void isa_reg_display();
 

@@ -100,12 +100,12 @@ bool isa_difftest_checkregs(CPU_state *ref_r, vaddr_t npc) {
   for(int i = 0; i < 32; i++) {
       if(ref_r->gpr[i] != cpuu.gpr[i]) {
       	  eqreg = false;
-      	  printf("difftest.cpp\n\033[36m%s \033[34mis different at pc = 0x%08lx\n", reg_name(i), cpuu.pc);
+      	  printf("difftest.cpp\n\033[36m%d-%s \033[34mis different at pc = 0x%08lx\n", i, reg_name(i), cpuu.pc);
       	  printf("right %08lx, wrong %08lx\033[0m\n", ref_r->gpr[i], cpuu.gpr[i] );
       }
   }
   if(ref_r->pc != npc) {
-    printf("difftest.cpp\nref_r->pc:%08lx\nnpc:%08lx\n",ref_r->pc,npc);
+    printf("difftest.cpp\nright npc:%08lx\nnow npc:%08lx\n",ref_r->pc,npc);
     eqreg = false;
     printf("now pc 0x%08lx\n", cpuu.pc);
   }
