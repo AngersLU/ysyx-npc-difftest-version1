@@ -147,6 +147,8 @@ remmeber, mem_read usu in exu(mine npc), your cpuu.pc or pc is wbu_pc, so u need
 
 8.add rtc and uart devices
 
+pass mario & cpu-test by npc.
+
 readme over
 that's all for now(2022/7/30), i will add later when i think of it.
 
