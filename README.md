@@ -7,8 +7,7 @@ readme is here!
 
 ysyx-npc simulation environment, just have difftest, reference is nemu
 
-ysyx-npc-difftest version 1.3
-
+ysyx-npc-difftest version 1.4
 
 verilator version 4.210
 
@@ -144,6 +143,9 @@ u must understand mem_read & mem_write how to deak with address and data.
 
 remmeber, mem_read usu in exu(mine npc), your cpuu.pc or pc is wbu_pc, so u need add a new wire from exu to top.
 
+#####################################################################
+
+8.add rtc and uart devices
 
 readme over
 that's all for now(2022/7/26), i will add later when i think of it.
