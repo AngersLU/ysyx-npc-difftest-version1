@@ -1,23 +1,21 @@
 # ysyx-npc-difftest-version1
 
 
-readme is here!
+readme is here!  
 
+ysyx-npc simulation environment, just have difftest, reference is nemu  
 
+ysyx-npc-difftest version 1.4  
 
-ysyx-npc simulation environment, just have difftest, reference is nemu
+verilator version 4.210  
 
-ysyx-npc-difftest version 1.4
-
-verilator version 4.210
-
-this is a object for ysyx. 
-test five stage assembly line, just have difftest, referance is nemu.  
-if u have other idea, please debug by yourself.
+this is a object for ysyx.   
+test five stage assembly line, just have difftest, referance is nemu.    
+if u have other idea, please debug by yourself.   
 
 ---
 
-##1.your top moudle is named " top "
+### 1.your top moudle is named " top "  
 
 top.v interface
 
@@ -71,27 +69,27 @@ top.v interface
 
 ---
 
-##2.maybe your npc don't have ebreak(),
-u have to code your am at a-m/am/src/riscv/npc/trm.c.  
-code what ? look nemu, copy.
+### 2.maybe your npc don't have ebreak(),  
+u have to code your am at *a-m/am/src/riscv/npc/trm.c*.  
+code what ? look nemu, copy.  
 
-ref_difftest_exec()\ref_difftest_regcpy()\ref_difftest_memcpuy()...
-at the same time, u should code them in neme/src/cpt/difftest/ref.c
-remeber, regcpy() need to copy pc and special regs.
+*ref_difftest_exec()\ref_difftest_regcpy()\ref_difftest_memcpuy()...*  
+at the same time, u should code them in *neme/src/cpt/difftest/ref.c*  
+remeber, regcpy() need to copy pc and special regs.  
 
 ---
 
-##3.add some code at a-m/scripts/riscv64-npc.mk
+### 3.add some code at *am/scripts/riscv64-npc.mk*
 
  	run: image 	
 		make -C $(NPC_HOME) run IMAGE = $(IMAGE).bin
 
-//some times your nemu is bad , so this is a big question.
-//phase3'difftest is better, but i don't have. maybe it will be ysyx-npc-difftest-version 2.
+some times your nemu is bad , so this is a big question.  
+phase3'difftest is better, but i don't have. maybe it will be ysyx-npc-difftest-version 2.  
 
 ---
 
-##4.u have to get riscv64-nemu-interpreter-so
+### 4.u have to get riscv64-nemu-interpreter-so
 
 	xxx@xx:~$ cd $NEMU_HOME
 	xxx@xx:~/$(NEMU_HOME)$ make menucofig
@@ -99,12 +97,12 @@ remeber, regcpy() need to copy pc and special regs.
 	select -> save -> exit
 	xxx@xx:~/$(NEMU_HOME)$ make run
 
-u will get riscv64-nemu-interpreter-so at $(NEMU_HOME)/build
-otherwise, u need to code na.cpp line:246 
+u will get riscv64-nemu-interpreter-so at *$(NEMU_HOME)/build.*  
+otherwise, u need to code na.cpp line:246  
 
 ---
 
-##5.use ebreak() in wbu
+### 5.use ebreak() in wbu  
 
 	import "DPI-C" function void ebreak;
 	always @(*) begin
@@ -115,7 +113,7 @@ otherwise, u need to code na.cpp line:246
 
 ---
 
-##6.your NPC must handle the result of mem_read->u have to use mask for data_sram result
+### 6.your NPC must handle the result of mem_read. = u have to use mask for data_sram result.
 
     //exu load and store example , u get mask in mem stage
     wire [ 7: 0] ex_dsram_sel;
@@ -137,7 +135,7 @@ otherwise, u need to code na.cpp line:246
 
 ---
 
-##7.u need add printf in pmemm_read() to get mtrace,.
+### 7.u need add printf in pmemm_read() to get mtrace,.
 
 u must understand mem_read & mem_write how to deak with address and data.
 
@@ -145,10 +143,10 @@ remmeber, mem_read usu in exu(mine npc), your cpuu.pc or pc is wbu_pc, so u need
 
 ---
 
-##8.add rtc and uart devices
+### 8.add rtc and uart devices
 
 pass mario & cpu-test by npc.
 
 readme over
-that's all for now(2022/7/30), i will add later when i think of it.
+that's all for now(2022/8/15) i will add later when i think of it.
 
