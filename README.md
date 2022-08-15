@@ -70,16 +70,16 @@ top.v interface
 ---
 
 ### 2.maybe your npc don't have ebreak(),  
-u have to code your am at *a-m/am/src/riscv/npc/trm.c*.  
+u have to code your am at ***a-m/am/src/riscv/npc/trm.c***.  
 code what ? look nemu, copy.  
 
-*ref_difftest_exec()\ref_difftest_regcpy()\ref_difftest_memcpuy()...*  
+***ref_difftest_exec()\ref_difftest_regcpy()\ref_difftest_memcpuy()...***  
 at the same time, u should code them in *neme/src/cpt/difftest/ref.c*  
 remeber, regcpy() need to copy pc and special regs.  
 
 ---
 
-### 3.add some code at *am/scripts/riscv64-npc.mk*
+### 3.add some code at ***am/scripts/riscv64-npc.mk***
 
  	run: image 	
 		make -C $(NPC_HOME) run IMAGE = $(IMAGE).bin
@@ -97,7 +97,7 @@ phase3'difftest is better, but i don't have. maybe it will be ysyx-npc-difftest-
 	select -> save -> exit
 	xxx@xx:~/$(NEMU_HOME)$ make run
 
-u will get riscv64-nemu-interpreter-so at *$(NEMU_HOME)/build.*  
+u will get riscv64-nemu-interpreter-so at ***$(NEMU_HOME)/build.***  
 otherwise, u need to code na.cpp line:246  
 
 ---
