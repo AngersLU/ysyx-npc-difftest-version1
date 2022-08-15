@@ -17,7 +17,7 @@ if u have other idea, please debug by yourself.
 
 ---
 
-1.your top moudle is named " top "
+##1.your top moudle is named " top "
 
 top.v interface
 
@@ -71,7 +71,7 @@ top.v interface
 
 ---
 
-2.maybe your npc don't have ebreak(),
+##2.maybe your npc don't have ebreak(),
 u have to code your am at a-m/am/src/riscv/npc/trm.c.  
 code what ? look nemu, copy.
 
@@ -81,7 +81,7 @@ remeber, regcpy() need to copy pc and special regs.
 
 ---
 
-3.add some code at a-m/scripts/riscv64-npc.mk
+##3.add some code at a-m/scripts/riscv64-npc.mk
 
  	run: image 	
 		make -C $(NPC_HOME) run IMAGE = $(IMAGE).bin
@@ -91,7 +91,7 @@ remeber, regcpy() need to copy pc and special regs.
 
 ---
 
-4.u have to get riscv64-nemu-interpreter-so
+##4.u have to get riscv64-nemu-interpreter-so
 
 	xxx@xx:~$ cd $NEMU_HOME
 	xxx@xx:~/$(NEMU_HOME)$ make menucofig
@@ -104,7 +104,7 @@ otherwise, u need to code na.cpp line:246
 
 ---
 
-5.use ebreak() in wbu
+##5.use ebreak() in wbu
 
 	import "DPI-C" function void ebreak;
 	always @(*) begin
@@ -115,7 +115,7 @@ otherwise, u need to code na.cpp line:246
 
 ---
 
-6.your NPC must handle the result of mem_read->u have to use mask for data_sram result
+##6.your NPC must handle the result of mem_read->u have to use mask for data_sram result
 
     //exu load and store example , u get mask in mem stage
     wire [ 7: 0] ex_dsram_sel;
@@ -137,7 +137,7 @@ otherwise, u need to code na.cpp line:246
 
 ---
 
-7.u need add printf in pmemm_read() to get mtrace,.
+##7.u need add printf in pmemm_read() to get mtrace,.
 
 u must understand mem_read & mem_write how to deak with address and data.
 
@@ -145,7 +145,7 @@ remmeber, mem_read usu in exu(mine npc), your cpuu.pc or pc is wbu_pc, so u need
 
 ---
 
-8.add rtc and uart devices
+##8.add rtc and uart devices
 
 pass mario & cpu-test by npc.
 
